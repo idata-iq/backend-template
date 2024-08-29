@@ -1,0 +1,17 @@
+{:paths ["src" "resources" "notebooks"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.3"}
+        scicloj/tablecloth {:mvn/version "7.029.2"}
+        org.scicloj/clay {:mvn/version "2-beta15"}
+        org.scicloj/kindly {:mvn/version "4-beta6"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "com.iraqidata.training"]}
+  :run-x {:ns-default com.iraqidata.training
+          :exec-fn greet
+          :exec-args {:name "Clojure"}}
+  :build {:deps {io.github.clojure/tools.build
+                 {:mvn/version "0.10.3"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}}}
